@@ -3,10 +3,19 @@
   <div class="header">
     <img src="./assets/images/logo100px.png" alt="SETLIST" class="logo">
     <div class="name">Setlist</div>
+
+    <button class="login" data-ng-click="home.login()">Login to Planning Center</button>
   </div>
 
   <div class="listofsongs">
-    <song song-data="{}"></song>
+    <p>{{selectedSong}}</p>
+    <input type="text" ng-model="selectedSong" placeholder="add a song..." uib-typeahead="song.attributes.title for song in home.getSongList($viewValue)" typeahead-loading="loadingSongs" typeahead-no-results="noResults" typeahead-on-select="home.selectSong($item, $model, $label, $event)" class="form-control">
+    <i ng-show="loadingSongs" class="fa fa-circle-o-notch"></i>
+    <div ng-show="noResults">
+      No Results Found
+    </div>
+
+    <song data-ng-repeat="song in home.songs | orderBy: 'attributes.title'" song-data="song"></song>
   </div>
 
 </div>
