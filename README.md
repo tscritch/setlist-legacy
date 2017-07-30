@@ -1,5 +1,5 @@
-# Node and AngularJS setlist
+# Setlist
 
-Get up and running with Node, Express, AngularJS, Karma and Jasmine, and Gulp. Simple Procfile for deploying to Heroku.
+Instantly create a setlist from songs based on their metadata using the Planning Center API
 
 Do not modify the `public` folder. All code is minified from the `app_client` folder into the public folder.

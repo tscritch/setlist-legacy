@@ -4,4 +4,4 @@ bower_components
 public/js
 public/fonts
 public/css
-.env
+public/env.js
