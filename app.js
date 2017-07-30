@@ -70,5 +70,4 @@ app.use(function(err, req, res, next) {
   }
 });
 
-app.listen(3000, '0.0.0.0');
 module.exports = app;

@@ -2,10 +2,10 @@
 FROM node:boron
 
 # Set the working directory to /app
-WORKDIR /usr/src/app
+WORKDIR .
 
 # Copy the current directory contents into the container at /app
-ADD . /usr/src/app
+ADD . .
 
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
@@ -14,4 +14,4 @@ EXPOSE 3000
 ENV NAME World
 
 # Run app.py when the container launches
-CMD ["node", "app.js"]
+CMD ["node", "./bin/www"]
