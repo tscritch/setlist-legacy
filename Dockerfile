@@ -5,7 +5,7 @@ FROM node:boron
 WORKDIR /usr/src/app
 
 # Copy the current directory contents into the container at /app
-ADD /public /usr/src/app
+ADD . /usr/src/app
 
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
