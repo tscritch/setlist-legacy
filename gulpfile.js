@@ -45,6 +45,30 @@ gulp.task('js', function() {
 
 });
 
+gulp.task('js.min', function() {
+  gulp.src(['./bower_components/jquery/dist/jquery.js',
+    './bower_components/bootstrap/dist/js/bootstrap.js',
+    './bower_components/angular/angular.js',
+    './bower_components/angular-ui-router/release/angular-ui-router.js',
+    './bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+    './bower_components/lodash/lodash.js'])
+    .pipe(sourcemaps.init())
+    .pipe(concat('deps.min.js'))
+    .pipe(ngAnnotate())
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./public/js'));
+
+  gulp.src('app_client/**/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(concat('app.min.js'))
+    .pipe(ngAnnotate())
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./public/js'));
+
+});
+
 gulp.task('css-deps', function() {
   gulp.src([
         "./bower_components/bootstrap/dist/css/bootstrap.min.css",
@@ -69,6 +93,14 @@ gulp.task('css', function() {
     .pipe(reload({stream: true}));
 });
 
+gulp.task('css.min', function() {
+  gulp.src(['./app_client/sass/style.sass', './app_client/sass/**/!*.sass'])
+    .pipe(plumber())
+    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('./public/css'));
+});
+
 gulp.task('html', function() {
   gulp.src('./app_client/**/*.html')
     .pipe(gulp.dest('./public/js/views'))
@@ -76,7 +108,11 @@ gulp.task('html', function() {
 
   gulp.src('./public/index.html')
     .pipe(reload({stream: true}));
+});
 
+gulp.task('html.min', function() {
+  gulp.src('./app_client/**/*.html')
+    .pipe(gulp.dest('./public/js/views'));
 });
 
 gulp.task('test', function(done) {
@@ -98,5 +134,7 @@ gulp.task('watch', function() {
   gulp.watch('./app_client/sass/**/*.sass', ['css']);
   gulp.watch(['./app_client/**/*.html', './public/index.html'], ['html']);
 });
+
+gulp.task('min', ['js.min', 'css-deps', 'css.min', 'html.min']);
 
 gulp.task('default', ['express', 'js', 'css-deps', 'css', 'html', 'browser-sync', 'watch']);
