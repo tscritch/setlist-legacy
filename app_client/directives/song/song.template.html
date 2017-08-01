@@ -1,8 +1,10 @@
 <div class="song">
 
+  <div class="delete-button" data-ng-click="songCtrl.destroy()">-</div>
+
   <div class="title">
     <label for="title">Title</label>
-    <input type="text" name="title" data-ng-model="songData.title">
+    <input type="text" name="title" data-ng-model="songData.title" placeholder="song name">
   </div><!--
 
   --><div class="speed">
@@ -22,12 +24,12 @@
 </div><!--
 
 --><div class="tags-box">
-    <label for="tags">Tags</label>
+    <label for="tags">Tags (max 3)</label>
     <div class="tags" name="tags">
       <div class="tag" data-ng-repeat="tag in songData.tags">{{'#' + tag}} <span class="remove" data-ng-click="removeTag(tag)">x</span></div>
     </div>
 
-    <button uib-popover-template="songCtrl.tagTemplate" type="button" class="add-tag" popover-trigger="outsideClick" popover-is-open="popoverIsOpen" popover-placement="right">+</button>
+    <button uib-popover-template="songCtrl.tagTemplate" type="button" class="add-tag" popover-trigger="outsideClick" popover-is-open="popoverIsOpen" popover-placement="left" data-ng-disabled="songData.tags.length > 2">+</button>
 
   </div>
 

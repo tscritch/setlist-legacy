@@ -24,14 +24,15 @@
     };
 
     $scope.$watch('popoverIsOpen', function(newval) {
-      if ($scope.songData.newtag === '' && !$scope.popoverIsOpen) {
-        $scope.songData.tags.pop();
-      }
-      else if ($scope.songData.newtag !== '' && $scope.songData.newtag !== undefined && !$scope.popoverIsOpen) {
+      if ($scope.songData.newtag !== '' && $scope.songData.newtag !== undefined && !$scope.popoverIsOpen) {
         $scope.songData.tags.push($scope.songData.newtag);
         $scope.songData.newtag = '';
       }
     });
+
+    vm.destroy = function(data) {
+      $scope.$emit('delete-song', $scope.songData);
+    };
 
   }
 

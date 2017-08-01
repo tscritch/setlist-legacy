@@ -4,7 +4,7 @@
 
   angular.module('setlist').controller('homeController', homeController);
 
-  function homeController($window, songApi) {
+  function homeController($window, $scope, songApi) {
     var vm = this;
 
     var newSong = {
@@ -37,6 +37,11 @@
     vm.createSetlist = function () {
       console.log('setlist created');
     };
+
+    $scope.$on('delete-song', function(e, songData) {
+      var i = _.findIndex(vm.songs, function(s) { return songData.title === s.title; });
+      vm.songs.splice(i, 1);
+    });
 
   }
 
