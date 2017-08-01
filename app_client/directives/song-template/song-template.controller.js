@@ -1,0 +1,18 @@
+(function() {
+
+  'use strict';
+
+  angular.module('setlist').controller('songTemplateController', songTemplateController);
+
+  function songTemplateController($scope) {
+    var vm = this;
+
+    vm.speeds = ['very slow', 'slow', 'medium', 'fast'];
+
+    $scope.setSpeed = function(speed) {
+      $scope.songData.speed = speed;
+    }
+
+  }
+
+})();
