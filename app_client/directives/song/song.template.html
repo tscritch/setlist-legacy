@@ -1,17 +1,36 @@
 <div class="song">
 
   <div class="title">
-    {{songData.attributes.title}}
+    <label for="title">Title</label>
+    <input type="text" name="title" data-ng-model="songData.title">
+  </div><!--
+
+  --><div class="speed">
+    <label for="speed">Speed</label>
+    <span uib-dropdown on-toggle="toggled(open)">
+      <div uib-dropdown-toggle>
+        {{songData.speed ? songData.speed : 'choose'}}
+      </div>
+      <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+        <li ng-repeat="speed in songCtrl.speeds">
+          <div data-ng-click="setSpeed(speed)">{{speed}}</div>
+        </li>
+      </ul>
+    </span>
+    <!-- <select name="speed" ng-model="songData.speed" ng-options="speed for speed in songCtrl.speeds"> -->
+  </select>
+</div><!--
+
+--><div class="tags-box">
+    <label for="tags">Tags</label>
+    <div class="tags" name="tags">
+      <div class="tag" data-ng-repeat="tag in songData.tags">{{'#' + tag}} <span class="remove" data-ng-click="removeTag(tag)">x</span></div>
+    </div>
+
+    <button uib-popover-template="songCtrl.tagTemplate" type="button" class="add-tag" popover-trigger="outsideClick" popover-is-open="popoverIsOpen" popover-placement="right">+</button>
+
   </div>
 
-  <div class="speed">
-    {{songData.attributes.speed}}
-  </div>
-
-  <div class="tags">
-    {{songData.attributes.tags}}
-  </div>
-
-  <div class="color color_{{songData.attributes.speed}}"></div>
+  <div class="color color_{{songData.speed}}"></div>
 
 </div>

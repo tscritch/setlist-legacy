@@ -6,26 +6,36 @@
 
   function homeController($window, songApi) {
     var vm = this;
-    vm.message = "Sup, Layne!";
 
-    vm.search = '';
+    var newSong = {
+      title: '',
+      speed: '',
+      tags: []
+    };
+
+    var newTemplate = {
+      id: 0,
+      speed: '',
+      tags: []
+    };
 
     vm.songs = [];
+    vm.templates = [];
 
-    // Get login for planning center
-    vm.login = function () {
-      console.log('login');
-      $window.open('https://api.planningcenteronline.com/oauth/authorize?client_id=' + '&redirect_uri=https://setlist.tadscritchfield.com&response_type=code&scope=services')
+    vm.addSong = function() {
+      vm.songs.push(_.cloneDeep(newSong));
     };
 
-    vm.getSongList = function (value) {
-      console.log(songApi.get(value));
-      return songApi.get(value);//.then(function (response) {return response;});
+    vm.templateChange = function() {
+      vm.templates = [];
+      for (var i = 0; i < vm.templateNumber; i++) {
+        vm.templates.push(_.cloneDeep(newTemplate));
+        vm.templates[i].id = i;
+      }
     };
 
-    vm.selectSong = function(item) {
-      console.log(item);
-      vm.songs.push(item);
+    vm.createSetlist = function () {
+      console.log('setlist created');
     };
 
   }
