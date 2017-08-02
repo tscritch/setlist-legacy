@@ -11,14 +11,11 @@
 
     vm.tagTemplate = '/js/views/directives/song/tag.template.html';
 
-    console.log($scope.songData.tags);
-
     $scope.setSpeed = function(speed) {
       $scope.songData.speed = speed;
     };
 
     $scope.removeTag = function(tag) {
-      console.log(tag);
       var i = _.findIndex($scope.songData.tags, tag);
       _.remove($scope.songData.tags, function(t) { return t === tag; });
     };

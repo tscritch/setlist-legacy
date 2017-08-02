@@ -2,7 +2,7 @@
 
   'use strict';
 
-  angular.module('setlist', ['ui.router', 'ui.bootstrap'])
+  angular.module('setlist', ['ui.router', 'ui.bootstrap', 'ngCookies'])
   .config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
 
     $urlRouterProvider.otherwise('/');

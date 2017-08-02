@@ -7,6 +7,18 @@
 
     <button class="about-button" ui-sref="about">about</button>
 
+    <button class="save-button" data-ng-click="home.save()">
+
+      <div class="text">{{saving ? '' : 'save'}}</div>
+
+      <svg class="icon-loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" data-ng-if="saving">
+        <path opacity=".25" d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4"/>
+        <path d="M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z">
+          <animateTransform attributeName="transform" type="rotate" from="0 16 16" to="360 16 16" dur=".8s" repeatCount="indefinite" />
+        </path>
+      </svg>
+    </button>
+
   </div>
 
   <div class="setlist-container">
@@ -28,12 +40,12 @@
 
       <h1>Template</h1>
 
-      <button class="create-setlist" data-ng-click="home.createSetlist()">create setlist</button>
+      <button class="create-setlist" data-ng-click="home.createSetlist()" data-ng-disabled="home.songs.length < home.templateNumber && home.templateNumber >= 2">create setlist</button>
 
       <select name="" id="" class="choose-type" data-ng-model="home.templateNumber" data-ng-change="home.templateChange()">
-        <option value="">Number of songs</option>
+        <option value="" disabled>Number of songs</option>
         <option value="2">2</option>
-        <option value="3">3</option>
+        <option value="3" selected>3</option>
         <option value="4">4</option>
         <option value="5">5</option>
         <option value="6">6</option>

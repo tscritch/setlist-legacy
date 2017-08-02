@@ -10,7 +10,7 @@
     vm.speeds = ['slowest', 'slow', 'medium', 'fast'];
 
     $scope.setSpeed = function(speed) {
-      $scope.songData.speed = speed;
+      $scope.template.speed = speed;
     };
 
   }

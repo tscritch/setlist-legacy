@@ -22,7 +22,6 @@
       display: inline-block
 
     .about-button
-      background-color: $main
       height: 40px
       outline: none
       float: right
@@ -36,9 +35,29 @@
       &:hover
         background-color: rgba(0, 0, 0, 0.1)
 
+    .save-button
+      height: 40px
+      outline: none
+      float: right
+      border: none
+      padding: 6px 10px
+      margin-top: -6px
+      margin-right: 0px
+      background-color: rgba(0, 0, 0, 0)
+      transition: background-color 0.2s ease-in-out
+      fill: rgba(#fff,.8)
+
+      .icon-loading
+        margin-top: 4px
+        width: 20px
+        height: 20px
+
+      &:hover
+        background-color: rgba(0, 0, 0, 0.1)
+
   .setlist-container
     .listofsongs
-      width: 50%
+      width: 60%
       min-width: 300px
       margin: auto
       padding: 5px 20px
@@ -48,6 +67,8 @@
       h1
         display: inline-block
         margin-bottom: 30px
+        user-select: none
+        cursor: default
 
         span
           font-size: 12px
@@ -65,6 +86,7 @@
         font-weight: 400
         padding-left: 7px
         transition: background-color 0.2s ease-in-out
+        user-select: none
 
         &:hover
           background-color: $main-darker
@@ -77,13 +99,17 @@
         overflow: scroll
 
     .setlist
-      width: 50%
+      width: 40%
       min-width: 300px
       text-align: left
       height: 100%
       padding: 5px 20px
       display: inline-block
       float: left
+
+      h1
+        user-select: none
+        cursor: default
 
       .create-setlist
         background-color: $main
@@ -96,9 +122,13 @@
         font-weight: 400
         padding: 6px 30px
         transition: background-color 0.2s ease-in-out
+        user-select: none
 
-        &:hover
+        &:hover:not([disabled])
           background-color: $main-darker
 
         &:focus
           outline: none
+
+        &:disabled
+          background-color: transparentize($main, 0.7)
