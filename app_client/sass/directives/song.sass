@@ -33,13 +33,14 @@
   .speed
     font-size: 14px
     font-weight: 400
-    width: 20%
+    width: 15%
     display: inline-block
     float: left
+    min-width: 90px
 
   .tags-box
     display: inline-block
-    width: 45%
+    width: 50%
     float: left
     margin-left: 0px
 
@@ -50,21 +51,27 @@
         display: inline-block
         float: left
         padding: 3px
-        max-width: 100px
+        padding-right: 12px
+        max-width: 80px
+        height: 28px
         color: rgba(0, 0, 0, 0.5)
         border: solid 1px rgba(0, 0, 0, 0)
         border-radius: 4px
         overflow: hidden
+        position: relative
         text-overflow: ellipsis
 
-        span
+        .remove
           cursor: pointer
           color: white
+          position: absolute
+          right: 2px
+          top: 3px
 
         &:hover
           border: solid 1px rgba(0, 0, 0, 0.2)
 
-          span
+          .remove
             color: rgba(0, 0, 0, 0.2)
 
     .add-tag

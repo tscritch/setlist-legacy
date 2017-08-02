@@ -7,11 +7,11 @@
   function songTemplateController($scope) {
     var vm = this;
 
-    vm.speeds = ['very slow', 'slow', 'medium', 'fast'];
+    vm.speeds = ['slowest', 'slow', 'medium', 'fast'];
 
     $scope.setSpeed = function(speed) {
       $scope.songData.speed = speed;
-    }
+    };
 
   }
 

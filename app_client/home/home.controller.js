@@ -16,7 +16,7 @@
     var newTemplate = {
       id: 0,
       speed: '',
-      tags: []
+      tag: ''
     };
 
     vm.songs = [];

@@ -4,7 +4,7 @@
     <label for="speed">Speed</label>
     <span uib-dropdown on-toggle="toggled(open)">
       <div uib-dropdown-toggle>
-        {{songData.speed ? songData.speed : 'choose speed'}}
+        {{songData.speed ? songData.speed : 'choose'}}
       </div>
       <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
         <li ng-repeat="speed in songTempCtrl.speeds">
@@ -16,9 +16,11 @@
   </select>
   </div>
 
-  <div class="tags">
-    <tags-input ng-model="songData.tags"></tags-input>
-    <!-- <div class="tag" data-ng-repeat="tag in songData.tags">{{tag}}</div> -->
+  <div class="tag">
+
+    <label for="tag">Tag</label>
+
+    <input type="text" name="tag" data-ng-model="songData.tag">
 
   </div>
 

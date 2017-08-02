@@ -26,7 +26,7 @@
 --><div class="tags-box">
     <label for="tags">Tags (max 3)</label>
     <div class="tags" name="tags">
-      <div class="tag" data-ng-repeat="tag in songData.tags">{{'#' + tag}} <span class="remove" data-ng-click="removeTag(tag)">x</span></div>
+      <div class="tag" data-ng-repeat="tag in songData.tags"><span class="tag-text">{{'#' + tag}}</span> <span class="remove" data-ng-click="removeTag(tag)">x</span></div>
     </div>
 
     <button uib-popover-template="songCtrl.tagTemplate" type="button" class="add-tag" popover-trigger="outsideClick" popover-is-open="popoverIsOpen" popover-placement="left" data-ng-disabled="songData.tags.length > 2">+</button>
