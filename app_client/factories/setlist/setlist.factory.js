@@ -21,6 +21,7 @@
         // reset
         tempSongs = [];
         // find tags
+        // TODO: find if tag is in list of tags. If not look for speed
         if (templateSongs[i].tag) {
           tagSongs = findSongsWithTag(songlist, templateSongs[i].tag);
           tempSongs = findSongsWithSpeed(tagSongs, templateSongs[i].speed);
@@ -30,9 +31,11 @@
           tempSongs = findSongsWithSpeed(songlist, templateSongs[i].speed);
         }
 
+        // if more than one option choose a random song
         if (tempSongs.length > 1) {
           pickedSongs.push(chooseSong(tempSongs));
         }
+        // else put the song in the list
         else {
           pickedSongs.push(tempSongs[0]);
         }
@@ -58,7 +61,7 @@
       var foundSongs = [];
 
       foundSongs = _.filter(songlist, function(song) {
-        return song.speed === speed;
+        return song.speed.includes(speed);
       });
 
       return foundSongs;
@@ -72,7 +75,7 @@
     }
 
     Setlist.getTags = function (songs) {
-
+      // get tags
     };
 
     return Setlist;
