@@ -56,5 +56,26 @@
     </div>
   </div>
 
+  <div class="show-setlist" data-ng-if="home.showSetist">
+    <div class="background">
+      <div class="content">
+        <h1>Your Setlist</h1>
+
+        <div class="setlist-songs">
+          <div class="setlist-song" data-ng-repeat="song in home.pickedSongs">
+            <div class="title">{{song.title}}</div>
+            <div class="tags">
+              <div class="tag" data-ng-repeat="tag in song.tags"><span class="tag-text">{{'#' + tag}}</span></div>
+            </div>
+
+            <div class="color-dot color_{{song.speed}}"></div>
+          </div>
+        </div>
+
+        <div class="exit" data-ng-click="home.showSetist = false">thanks!</div>
+      </div>
+    </div>
+  </div>
+
 
 </div>

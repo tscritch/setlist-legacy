@@ -55,6 +55,20 @@
       &:hover
         background-color: rgba(0, 0, 0, 0.1)
 
+  .dropdown-menu
+    padding: 5px 0px
+    min-width: 90px
+
+    li
+      background-color: white
+      padding: 2px 10px
+      cursor: pointer
+
+      &:hover
+        background-color: rgba(0, 0, 0, 0.1)
+
+
+
   .setlist-container
     .listofsongs
       width: 60%
@@ -132,3 +146,105 @@
 
         &:disabled
           background-color: transparentize($main, 0.7)
+
+  .show-setlist
+    position: relative
+    height: 100%
+    width: 100%
+
+    .background
+      position: absolute
+      height: 100%
+      width: 100%
+      background-color: rgba(0, 0, 0, 0.1)
+      padding: 80px
+
+      .content
+        position: relative
+        min-height: 400px
+        width: 600px
+        background-color: white
+        border-radius: 4px
+        margin: auto
+        padding: 30px
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15)
+
+        .setlist-songs
+          width: 100%
+          min-height: 265px
+
+          .setlist-song
+            height: 60px
+            width: 100%
+            border-radius: 6px
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15)
+            margin: 20px 0
+            padding: 14px 20px
+
+            .title
+              display: inline
+              font-size: 18px
+              vertical-align: middle
+
+            .tags
+              height: 34px
+              display: inline-block
+              padding: 4px 0
+              vertical-align: middle
+
+              .tag
+                display: inline-block
+                float: left
+                padding: 3px
+                padding-right: 12px
+                max-width: 120px
+                height: 28px
+                color: rgba(0, 0, 0, 0.5)
+                border: solid 1px rgba(0, 0, 0, 0)
+                border-radius: 4px
+                overflow: hidden
+                position: relative
+                text-overflow: ellipsis
+
+            .color-dot
+              width: 12px
+              height: 12px
+              border-radius: 20px
+              display: inline-block
+              float: right
+              margin-top: 10px
+
+
+
+        .exit
+          width: 130px
+          margin: 10px auto 0
+          font-size: 14px
+          cursor: pointer
+          color: white
+          padding: 6px 16px
+          text-align: center
+          border-radius: 100px
+          background-color: $secondary
+
+          &:hover
+            background-color: darken($secondary, 0.1)
+
+        h1
+          margin: 0
+
+
+  .color_
+    background-color: rgb(200,200,200)
+
+  .color_fast
+    background-color: $main
+
+  .color_medium
+    background-color: $secondary
+
+  .color_slow
+    background-color: rgb(249, 237, 86)
+
+  .color_slowest
+    background-color: $red

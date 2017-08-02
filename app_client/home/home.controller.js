@@ -19,8 +19,8 @@
       tag: ''
     };
 
-    var exampleSongs = [];
-    var exampleTemplates = [];
+    var exampleSongs = [{"title":"Have It All","speed":"slow","tags":["sacrifice","surrender"],"newtag":""},{"title":"Cannons","speed":"fast","tags":["praise","honor","glory"],"newtag":""},{"title":"Nothing is Holding Me Back","speed":"medium","tags":["surrender"],"newtag":""},{"title":"Desert Song","speed":"medium","tags":["praise","victory","storm"],"newtag":""},{"title":"Fall Afresh","speed":"medium","tags":["holy spirit","welcome"],"newtag":""},{"title":"Heartbeats","speed":"medium","tags":["praise","passion"],"newtag":""},{"title":"High Above It All","speed":"medium","tags":["storm","victory"],"newtag":""},{"title":"I Am Set Free","speed":"slowest","tags":["freedom","grace"],"newtag":""},{"title":"Jesus Paid It All","speed":"slowest","tags":["sacrifice","debt","cross"],"newtag":""},{"title":"Jesus We Love You","speed":"medium","tags":["anthem","love","grace"],"newtag":""},{"title":"King Of My Heart","speed":"medium","tags":["goodness","anchor","hope"],"newtag":""},{"title":"Lion and The Lamb","speed":"fast","tags":["sacrifce","freedom","power"],"newtag":""},{"title":"My All In All","speed":"medium","tags":["hope","storm","passion"],"newtag":""},{"title":"Resurrecting","speed":"medium","tags":["resurrection","sacrifice","praise"],"newtag":""},{"title":"Scandal Of Grace","speed":"medium","tags":["hope","sacrifice","grace"],"newtag":""},{"title":"Sinking Deep","speed":"slow","tags":["love","surrender"],"newtag":""},{"title":"Sing Out","speed":"fast","tags":["praise","holy","worthy"],"newtag":""},{"title":"The One We Love","speed":"fast","tags":["praise","truth","freedom"],"newtag":""},{"title":"This Is Amazing Grace","speed":"fast","tags":["grace","sacrifice","praise"],"newtag":""},{"title":"We Lift You High","speed":"medium","tags":["praise","surrender"],"newtag":""},{"title":"What A Beautiful Name","speed":"slow","tags":["worthy","power","truth"],"newtag":""},{"title":"Your Glory","speed":"slowest","tags":["surrender","sin","glory"],"newtag":""}];
+    var exampleTemplates = [{"id":0,"speed":"fast","tag":"praise"},{"id":1,"speed":"slow","tag":"sacrifice"},{"id":2,"speed":"medium","tag":"surrender"}];
 
     // look for stored data else new session
     vm.songs = $cookies.getObject('songs') || exampleSongs;
@@ -28,6 +28,7 @@
     vm.templateNumber = $cookies.get('templateNumber') || exampleTemplates.length;
 
     vm.pickedSongs = [];
+    vm.showSetist = false;
 
     vm.addSong = function() {
       vm.songs.push(_.cloneDeep(newSong));
@@ -53,7 +54,7 @@
 
     vm.createSetlist = function () {
       vm.pickedSongs = setlistFactory.pickSongs(vm.songs, vm.templates);
-      console.log(vm.pickedSongs);
+      vm.showSetist = true;
     };
 
     $scope.$on('delete-song', function(e, songData) {
