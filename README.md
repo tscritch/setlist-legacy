@@ -1,5 +1,7 @@
 # Setlist
 
-Instantly create a setlist from songs based on their metadata using the Planning Center API
+Instantly create a setlist of songs based on their metadata.
 
-Do not modify the `public` folder. All code is minified from the `app_client` folder into the public folder.
+[setlist](tadscritchfield.com:3000)
+
+[About](tadscritchfield.com:3000/about)
