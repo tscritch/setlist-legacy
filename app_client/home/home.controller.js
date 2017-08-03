@@ -53,7 +53,7 @@
     };
 
     vm.createSetlist = function () {
-      vm.pickedSongs = setlistFactory.pickSongs(vm.songs, vm.templates);
+      vm.pickedSongs = setlistFactory.pickSongs(_.cloneDeep(vm.songs), vm.templates);
       vm.showSetist = true;
     };
 

@@ -15,6 +15,10 @@
 
       var tagSongs = [];
       var tempSongs = [];
+      var tempSong = {};
+      var equal = function (s) {
+        return _.isEqual(s, tempSong);
+      };
 
       // each template song
       for(var i = 0; i < templateSongs.length; i++) {
@@ -33,12 +37,18 @@
 
         // if more than one option choose a random song
         if (tempSongs.length > 1) {
-          pickedSongs.push(chooseSong(tempSongs));
+          tempSong = chooseSong(tempSongs);
         }
         // else put the song in the list
         else {
-          pickedSongs.push(tempSongs[0]);
+          tempSong = tempSongs[0];
         }
+
+        pickedSongs.push(tempSong);
+
+        // remove song from list for no repeats
+        _.remove(songlist, equal);
+
       }
 
       return pickedSongs;
