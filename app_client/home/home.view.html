@@ -42,8 +42,9 @@
 
       <button class="create-setlist" data-ng-click="home.createSetlist()" data-ng-disabled="home.songs.length < home.templateNumber && home.templateNumber >= 2">create setlist</button>
 
-      <select name="" id="" class="choose-type" data-ng-model="home.templateNumber" data-ng-change="home.templateChange()">
-        <option value="" disabled>Number of songs</option>
+      <label for="numberofsongs">Choose number of songs:</label>
+      <select name="numberofsongs" id="" class="choose-type" data-ng-model="home.templateNumber" data-ng-change="home.templateChange()">
+        <!-- <option value="" disabled>Number of songs</option> -->
         <option value="2">2</option>
         <option value="3" selected>3</option>
         <option value="4">4</option>
